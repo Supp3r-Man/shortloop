@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>shortloop</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="/static/style.css">
+<script src="/static/app.js" defer></script>
+</head>
+<body>
+<header>
+  <h1>shortloop</h1>
+  <button id="logout" class="ghost" hidden>Log out</button>
+</header>
+<main>
+  <p id="msg" role="status" aria-live="polite"></p>
+
+  <section id="auth" class="card narrow" aria-labelledby="auth-title" hidden>
+    <h2 id="auth-title">Log in</h2>
+    <form id="auth-form">
+      <label>Email <input name="email" type="email" autocomplete="email" required maxlength="254"></label>
+      <label>Password (10+ characters)
+        <input name="password" type="password" autocomplete="current-password" required minlength="10" maxlength="128">
+      </label>
+      <button id="auth-submit">Log in</button>
+    </form>
+    <button id="toggle" class="link" type="button">Need an account? Register</button>
+  </section>
+
+  <div id="app" hidden>
+    <form id="new" class="card grid">
+      <label>Destination URL <input name="url" type="url" required maxlength="2048" placeholder="https://example.com/long/path"></label>
+      <label>Custom slug (optional) <input name="slug" pattern="[A-Za-z0-9_\-]{3,32}" maxlength="32"></label>
+      <label>Expires (optional) <input name="expires_at" type="datetime-local"></label>
+      <label>Click limit (optional) <input name="max_clicks" type="number" min="1" max="1000000"></label>
+      <button>Shorten</button>
+    </form>
+
+    <section aria-labelledby="links-h">
+      <h2 id="links-h">Your links</h2>
+      <ul id="links" class="list"></ul>
+    </section>
+
+    <section id="stats" class="card" tabindex="-1" aria-labelledby="stats-title" hidden>
+      <div class="row">
+        <h2 id="stats-title"></h2>
+        <button id="close" class="ghost" type="button">Close</button>
+      </div>
+      <p id="total"></p>
+      <div id="chart"></div>
+      <div class="cols">
+        <div id="refs"><h3>Top referrers</h3><ul class="bars"></ul></div>
+        <div id="devices"><h3>Devices</h3><ul class="bars"></ul></div>
+        <div id="countries" hidden><h3>Countries</h3><ul class="bars"></ul></div>
+        <div><h3>QR code</h3><img id="qr" alt="" width="144" height="144"></div>
+      </div>
+    </section>
+  </div>
+</main>
+</body>
+</html>

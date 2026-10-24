@@ -1,0 +1,6 @@
+# Python 3.11+
+fastapi>=0.110
+uvicorn>=0.29
+argon2-cffi>=23.1
+# optional: install and drop GeoLite2-Country.mmdb next to app.py to record countries
+# maxminddb>=2.5

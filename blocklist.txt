@@ -1,0 +1,5 @@
+# One regex per line, matched case-insensitively against the full destination URL.
+//[^/]*(phishing|malware)[^/]*/
+//[^/]*xn--
+\.(exe|scr|bat|apk)(\?|#|$)
+//(www\.)?(bit\.ly|tinyurl\.com|t\.co|goo\.gl)/
